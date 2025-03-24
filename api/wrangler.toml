@@ -1,5 +1,5 @@
 name = "burnmail-api"
-compatibility_date = "2024-09-06"
+compatibility_date = "2025-03-24"
 main = "src/index.ts"
 
 [[d1_databases]]

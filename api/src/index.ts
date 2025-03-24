@@ -6,11 +6,12 @@ import { Hono } from "hono";
 import { cors } from "hono/cors";
 import { z } from "zod";
 import * as schema from "./schema";
-import { plausible } from "./plausible";
+import { trackEvent } from "./plausible";
 
 export interface Bindings {
   DB: D1Database;
   DOMAIN: string;
+  PLAUSIBLE_DOMAIN: string;
 }
 
 export interface Variables {
@@ -114,7 +115,7 @@ export default {
 
     buffer += decoder.decode();
 
-    plausible.trackEvent("email-receive");
+    await trackEvent("email-receive", env);
 
     await db.insert(schema.emails).values({
       emailKey: address.email,
