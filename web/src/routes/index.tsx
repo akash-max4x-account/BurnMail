@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import fetcher from "@/lib/fetcher";
+import { plausible } from "@/lib/plausible";
 import { useQuery } from "@tanstack/react-query";
 import { Clipboard, RefreshCcw } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -46,6 +47,8 @@ function Index() {
       .$post()
       .then((res) => res.json())
       .then((data) => {
+        plausible.trackEvent("email-create");
+
         localStorage.setItem("token", data.token);
         setToken(data.token);
         setLoading(false);
@@ -84,7 +87,7 @@ function Index() {
           disabled
           readOnly
           className="border-0 bg-secondary rounded-none"
-          value={data?.email}
+          value={data?.email ?? ""}
           id="email"
           name="email"
           type="email"
