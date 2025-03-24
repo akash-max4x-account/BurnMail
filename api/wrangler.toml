@@ -10,6 +10,7 @@ migrations_dir = "drizzle/migrations"
 
 [vars]
 DOMAIN = "burnmail.dev"
+PLAUSIBLE_DOMAIN = "https://s.lorenzo0111.me"
 
 [triggers]
 crons = ["0 0 * * *"]
