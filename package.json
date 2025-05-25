@@ -9,7 +9,7 @@
     "deploy": "turbo deploy"
   },
   "devDependencies": {
-    "turbo": "^2.4.4"
+    "turbo": "^2.5.3"
   },
-  "packageManager": "pnpm@10.6.5"
+  "packageManager": "pnpm@10.11.0"
 }

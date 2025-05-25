@@ -3,6 +3,7 @@ packages:
   - web
 onlyBuiltDependencies:
   - '@swc/core'
+  - '@tailwindcss/oxide'
   - esbuild
   - sharp
   - workerd
